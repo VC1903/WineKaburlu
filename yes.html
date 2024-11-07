@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorry!</title>
+    <style>
+        body, html {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            overflow-y: auto; /* Allow the container to scroll if content overflows */
+        }
+
+        .gif_container img {
+            max-width: 80%; /* Reduced size of the GIF */
+            max-height: 300px; /* Reduced height of the GIF */
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            font-size: 1.5rem; /* Adjusted for better fit */
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 1.2rem; /* Adjusted for better fit */
+            color: #555;
+            text-align: center;
+            line-height: 1.4;
+            margin-bottom: 40px; /* Space for the Next button */
+        }
+
+        .next-button {
+            background-color: #ff8c00;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .next-button:hover {
+            background-color: #ff6600;
+        }
+
+        /* Page-turn overlay */
+        .page-turn-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 10;
+            animation: pageTurn 1s forwards;
+        }
+
+        /* Page-turn animation */
+        @keyframes pageTurn {
+            0% {
+                transform: scaleX(0);
+                transform-origin: left;
+            }
+            100% {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- GIF Display -->
+        <div class="gif_container">
+            <img src="sorry.gif" alt="Apology GIF">
+        </div>
+        
+        <!-- Apology heading below the GIF -->
+        <h2>మన్నించు అంజలి!</h2>
+        
+        <!-- Apology message below the heading -->
+        <p class="message">
+            ఈ మధ్య నేను నేనులా లేను. ముఖ్యంగా నాకస్సలు నచ్చేలా లేను. దానికి బోలెడు కారణాలు. ఎటు వెళ్తుందో అర్థం కాని విధంగా – కెరీర్, ఏం జరుగుతుందో అర్థం కాని పరిస్థితులు – ఇంట్లో. అవన్నీ నన్ను నాలా ఉండకుండా చేశాయి. అవన్నీ నీ మీద చూపించాను. ఒక ఎమోషన్‌ని ఇంకో చోట చూపించాను. నన్ను నేను డిఫెండ్‌ చేసుకోవడానికి ఇది చెప్పడం లేదు. నా యాక్షన్స్‌ అన్నింటికి నేను రిగ్రెట్‌ ఫీలవుతున్నాను. నేను నీతో ప్రవర్తించిన తీరు చాలా తప్పు. తప్పు చేశాను. నా బిహేవియర్‌ నిన్ను చాలా బాధపడేలా చేసింది. క్షమించమని అడుగుతున్నాను. భవిష్యత్తులో నన్ను నాలా ఉండకుండా చేసే పరిస్థితులు వస్తాయి అని నాకు తెలుసు. కానీ ఈ సారి అలా ప్రవర్తించను. ఒట్టుగా.
+            <br><br>
+            మనసా మన్నించమంటూ అడగనులే
+            తెలిసే ఇంకొక్కసారి జరగదులే.
+        </p>
+
+        <!-- Next Button below the message -->
+        <button class="next-button" onclick="triggerPageTurn()">Next</button>
+    </div>
+
+    <!-- Page-turn overlay -->
+    <div class="page-turn-overlay" id="pageTurn"></div>
+
+    <script>
+        function triggerPageTurn() {
+            const pageTurnOverlay = document.getElementById('pageTurn');
+            pageTurnOverlay.style.display = 'block';
+            pageTurnOverlay.classList.add('page-turn-animation');
+
+            // Redirect to the next page after the animation completes
+            setTimeout(() => {
+                window.location.href = "date.html";
+            }, 1000); // Adjust this delay to match the animation duration
+        }
+    </script>
+</body>
+
+</html>
